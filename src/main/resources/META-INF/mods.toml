@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "MIT License"
+
+[[mods]]
+modId = "funken5p7uhen"
+version = "${version}"
+displayName = "fμnken5p7ühen"
+authors = "pkstDev"
+description = '''
+Automatisierung des Feuers.
+'''
+
+[[dependencies.funken5p7uhen]]
+modId = "forge"
+mandatory = true
+versionRange = "[40,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.funken5p7uhen]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,)"
+ordering = "NONE"
+side = "BOTH"

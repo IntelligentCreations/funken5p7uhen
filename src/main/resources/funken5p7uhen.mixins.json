@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "dev.intelligentcreations.funken5p7uhen.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
