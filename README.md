@@ -4,4 +4,8 @@
 
 *Automatisierung des Feuers.*
 
+**fμnken5p7ühen** is, or might be, an entry of Intelligent Creations, for TeaCon.
+
+It focuses on using fire and lava to build a complete logistics system.
+
 WARNING: Incomplete and won't get many updates until June 13th.
