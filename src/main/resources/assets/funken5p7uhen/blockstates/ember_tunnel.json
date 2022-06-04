@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "facing=down,lava=false": {
+      "model": "funken5p7uhen:/block/ember_tunnel",
+      "x": 180
+    },
+    "facing=east,lava=false": {
+      "model": "funken5p7uhen:/block/ember_tunnel",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,lava=false": {
+      "model": "funken5p7uhen:/block/ember_tunnel",
+      "x": 90
+    },
+    "facing=south,lava=false": {
+      "model": "funken5p7uhen:/block/ember_tunnel",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,lava=false": {
+      "model": "funken5p7uhen:/block/ember_tunnel"
+    },
+    "facing=west,lava=false": {
+      "model": "funken5p7uhen:/block/ember_tunnel",
+      "x": 90,
+      "y": 270
+    },
+    "facing=down,lava=true": {
+      "model": "funken5p7uhen:/block/ember_tunnel_lava",
+      "x": 180
+    },
+    "facing=east,lava=true": {
+      "model": "funken5p7uhen:/block/ember_tunnel_lava",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,lava=true": {
+      "model": "funken5p7uhen:/block/ember_tunnel_lava",
+      "x": 90
+    },
+    "facing=south,lava=true": {
+      "model": "funken5p7uhen:/block/ember_tunnel_lava",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,lava=true": {
+      "model": "funken5p7uhen:/block/ember_tunnel_lava"
+    },
+    "facing=west,lava=true": {
+      "model": "funken5p7uhen:/block/ember_tunnel_lava",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

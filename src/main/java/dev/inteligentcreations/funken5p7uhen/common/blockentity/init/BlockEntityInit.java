@@ -5,6 +5,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.registries.DeferredRegister;
 
-public class BlockEntityInit {
+public class BlockEntityInit
+{
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registry.BLOCK_ENTITY_TYPE_KEY, funken5p7uhen.MOD_ID);
 }
