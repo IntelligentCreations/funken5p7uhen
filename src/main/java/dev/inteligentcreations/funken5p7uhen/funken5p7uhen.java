@@ -36,10 +36,12 @@ public class funken5p7uhen
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        // i probably dont know what to place here, but i keep it in case i need to do something in the common setup
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
         RenderLayers.setRenderLayer(BlockInit.EMBER_TUNNEL.get(), RenderLayer.getCutout());
+        RenderLayers.setRenderLayer(BlockInit.EMBER_CONTAINER.get(), RenderLayer.getCutout());
     }
 }

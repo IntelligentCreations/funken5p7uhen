@@ -8,6 +8,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -21,16 +22,17 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.List;
 
-public class EmberTunnelBlock extends FacingBlock implements Waterloggable
+public class EmberTunnelBlock extends Block implements Waterloggable
 {
     public static final BooleanProperty WITH_LAVA = BooleanProperty.of("lava");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+    public static final DirectionProperty FACING = Properties.FACING;
 
     public EmberTunnelBlock(Settings settings)
     {
         super(settings);
         setDefaultState(this.getStateManager().getDefaultState()
-                .with(Properties.FACING, Direction.NORTH)
+                .with(FACING, Direction.NORTH)
                 .with(WITH_LAVA, false)
                 .with(WATERLOGGED, false));
     }
@@ -38,7 +40,7 @@ public class EmberTunnelBlock extends FacingBlock implements Waterloggable
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager)
     {
-        stateManager.add(Properties.FACING);
+        stateManager.add(FACING);
         stateManager.add(WITH_LAVA);
         stateManager.add(WATERLOGGED);
     }
@@ -62,7 +64,7 @@ public class EmberTunnelBlock extends FacingBlock implements Waterloggable
     public BlockState getPlacementState(ItemPlacementContext ctx)
     {
         return this.getDefaultState()
-                .with(Properties.FACING, ctx.getPlayerLookDirection().getOpposite())
+                .with(FACING, ctx.getPlayerLookDirection().getOpposite())
                 .with(WITH_LAVA, false)
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
     }

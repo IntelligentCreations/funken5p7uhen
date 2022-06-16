@@ -1,7 +1,6 @@
 package dev.inteligentcreations.funken5p7uhen.common.block.init;
 
-import dev.inteligentcreations.funken5p7uhen.common.block.impl.EmberIntersectionBlock;
-import dev.inteligentcreations.funken5p7uhen.common.block.impl.EmberTunnelBlock;
+import dev.inteligentcreations.funken5p7uhen.common.block.impl.*;
 import dev.inteligentcreations.funken5p7uhen.funken5p7uhen;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
@@ -18,4 +17,6 @@ public class BlockInit
             new EmberIntersectionBlock(Block.Settings.of(Material.STONE, MapColor.BLACK).hardness(2.0f).requiresTool()));
     public static final RegistryObject<Block> EMBER_TUNNEL = BLOCKS.register("ember_tunnel", () ->
             new EmberTunnelBlock(Block.Settings.of(Material.STONE, MapColor.BLACK).hardness(2.0f).requiresTool()));
+    public static final RegistryObject<Block> EMBER_CONTAINER = BLOCKS.register("ember_container", () ->
+            new EmberContainerBlock(Block.Settings.of(Material.STONE, MapColor.BLACK).hardness(2.0f).requiresTool()));
 }

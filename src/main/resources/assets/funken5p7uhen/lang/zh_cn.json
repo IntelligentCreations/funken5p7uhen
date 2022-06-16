@@ -3,6 +3,17 @@
   "block.funken5p7uhen.ember_intersection.tooltip": "让思想转个弯。",
   "block.funken5p7uhen.ember_tunnel": "余烬管道",
   "block.funken5p7uhen.ember_tunnel.tooltip": "四面高墙。",
+  "block.funken5p7uhen.ember_container": "余烬容器",
+  "block.funken5p7uhen.ember_container.tooltip": "下界的结晶凝结于此。",
+
+  "item.funken5p7uhen.inferno_tablet": "炽焰錾板",
+  "item.funken5p7uhen.inferno_tablet.tooltip": "依然炙热。",
+  "item.funken5p7uhen.inferno_tablet.type_info": "种类：%s",
+
+  "tabletType.funken5p7uhen.march": "疾行",
+  "tabletType.funken5p7uhen.annihilation": "湮灭",
+  "tabletType.funken5p7uhen.attraction": "噬引",
+  "tabletType.funken5p7uhen.infiltration": "渗入",
 
   "itemGroup.funken5p7uhen": "fμnken5p7ühen"
 }

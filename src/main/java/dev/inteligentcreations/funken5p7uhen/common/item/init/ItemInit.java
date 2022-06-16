@@ -17,4 +17,6 @@ public class ItemInit
             new BlockItem(BlockInit.EMBER_INTERSECTION.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
     public static final RegistryObject<Item> EMBER_TUNNEL = ITEMS.register("ember_tunnel", () ->
             new BlockItem(BlockInit.EMBER_TUNNEL.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> EMBER_CONTAINER = ITEMS.register("ember_container", () ->
+            new BlockItem(BlockInit.EMBER_CONTAINER.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 }
