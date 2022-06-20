@@ -9,7 +9,7 @@ public class ItemGroupImpl extends ItemGroup
 {
     public static final ItemGroupImpl INSTANCE = new ItemGroupImpl();
 
-    public ItemGroupImpl()
+    protected ItemGroupImpl()
     {
         super(funken5p7uhen.MOD_ID);
     }

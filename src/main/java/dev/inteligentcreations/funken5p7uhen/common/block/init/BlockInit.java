@@ -2,9 +2,7 @@ package dev.inteligentcreations.funken5p7uhen.common.block.init;
 
 import dev.inteligentcreations.funken5p7uhen.common.block.impl.*;
 import dev.inteligentcreations.funken5p7uhen.funken5p7uhen;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -19,4 +17,7 @@ public class BlockInit
             new EmberTunnelBlock(Block.Settings.of(Material.STONE, MapColor.BLACK).hardness(2.0f).requiresTool()));
     public static final RegistryObject<Block> EMBER_CONTAINER = BLOCKS.register("ember_container", () ->
             new EmberContainerBlock(Block.Settings.of(Material.STONE, MapColor.BLACK).hardness(2.0f).requiresTool()));
+
+    public static final RegistryObject<Block> RESEARCHING_TABLE = BLOCKS.register("researching_table", () ->
+            new ResearchingTableBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
 }

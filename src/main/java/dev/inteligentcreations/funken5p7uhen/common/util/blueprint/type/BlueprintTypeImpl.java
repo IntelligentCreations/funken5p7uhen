@@ -1,8 +1,9 @@
 package dev.inteligentcreations.funken5p7uhen.common.util.blueprint.type;
 
 import net.minecraft.util.Identifier;
+import net.minecraft.util.StringIdentifiable;
 
-public enum BlueprintTypeImpl implements BlueprintType
+public enum BlueprintTypeImpl implements BlueprintType, StringIdentifiable
 {
     EMBER_TUNNEL(new Identifier("funken5p7uhen", "ember_tunnel")),
     EMBER_CONTAINER(new Identifier("funken5p7uhen", "ember_container")),
@@ -19,5 +20,11 @@ public enum BlueprintTypeImpl implements BlueprintType
     public Identifier getIdentifier()
     {
         return this.id;
+    }
+
+    @Override
+    public String asString()
+    {
+        return getIdentifier().getPath();
     }
 }

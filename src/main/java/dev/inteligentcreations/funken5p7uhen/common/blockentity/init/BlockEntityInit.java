@@ -2,6 +2,7 @@ package dev.inteligentcreations.funken5p7uhen.common.blockentity.init;
 
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberContainerBlockEntity;
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.ResearchingTableBlockEntity;
 import dev.inteligentcreations.funken5p7uhen.funken5p7uhen;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
@@ -14,4 +15,6 @@ public class BlockEntityInit
 
     public static final RegistryObject<BlockEntityType<EmberContainerBlockEntity>> EMBER_CONTAINER = BLOCK_ENTITIES.register("ember_container", () ->
             BlockEntityType.Builder.create(EmberContainerBlockEntity::new, BlockInit.EMBER_CONTAINER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ResearchingTableBlockEntity>> RESEARCHING_TABLE = BLOCK_ENTITIES.register("researching_table", () ->
+            BlockEntityType.Builder.create(ResearchingTableBlockEntity::new, BlockInit.RESEARCHING_TABLE.get()).build(null));
 }
