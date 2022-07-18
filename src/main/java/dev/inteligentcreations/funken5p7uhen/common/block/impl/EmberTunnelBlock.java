@@ -1,6 +1,12 @@
 package dev.inteligentcreations.funken5p7uhen.common.block.impl;
 
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberContainerBlockEntity;
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberTunnelBlockEntity;
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -18,11 +24,13 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class EmberTunnelBlock extends Block implements Waterloggable
+public class EmberTunnelBlock extends BlockWithEntity implements Waterloggable
 {
     public static final BooleanProperty WITH_LAVA = BooleanProperty.of("lava");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -98,5 +106,27 @@ public class EmberTunnelBlock extends Block implements Waterloggable
             world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos,
+                                         BlockState state)
+    {
+        return new EmberTunnelBlockEntity(pos, state);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state)
+    {
+        return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world,
+                                                                  BlockState state,
+                                                                  BlockEntityType<T> type)
+    {
+        return checkType(type, BlockEntityInit.EMBER_TUNNEL.get(), EmberTunnelBlockEntity::tick);
     }
 }

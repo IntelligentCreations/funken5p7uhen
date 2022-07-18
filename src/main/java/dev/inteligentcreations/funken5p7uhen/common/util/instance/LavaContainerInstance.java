@@ -1,7 +1,12 @@
 package dev.inteligentcreations.funken5p7uhen.common.util.instance;
 
+import net.minecraft.util.math.Direction;
+
+import java.util.Map;
+
 /**
- * We don't want our devices to interact with other mods' fluid transfer/storage blocks, so we use a standalone lava container instance.
+ * We don't want our devices to interact with other mods' fluid storage blocks, so we use a standalone lava container instance.<p>
+ *
  * It should also be easier to port the mod to Fabric.
  */
 public class LavaContainerInstance
@@ -10,15 +15,18 @@ public class LavaContainerInstance
     private final long maxInsert;
     private final long maxExtract;
     private final long maxStore;
+    private final Map<Direction, Action> availableDirections;
 
     protected LavaContainerInstance(long maxInsert,
                                     long maxExtract,
-                                    long maxStore)
+                                    long maxStore,
+                                    Map<Direction, Action> availableDirections)
     {
         this.maxInsert = maxInsert;
         this.maxExtract = maxExtract;
         this.maxStore = maxStore;
         this.storedLava = 0;
+        this.availableDirections = availableDirections;
     }
 
     public long getMaxInsert()
@@ -38,9 +46,10 @@ public class LavaContainerInstance
 
     public static LavaContainerInstance createInstance(long maxInsert,
                                                 long maxExtract,
-                                                long maxStore)
+                                                long maxStore,
+                                                Map<Direction, Action> availableDirections)
     {
-        return new LavaContainerInstance(maxInsert, maxExtract, maxStore);
+        return new LavaContainerInstance(maxInsert, maxExtract, maxStore, availableDirections);
     }
 
     public long extractTo(LavaContainerInstance target,
@@ -76,5 +85,28 @@ public class LavaContainerInstance
         long actualTake = Math.min(amount, storedLava);
         storedLava -= actualTake;
         return actualTake;
+    }
+
+    public boolean isActionValid(Direction direction,
+                                 Action action)
+    {
+        return availableDirections.containsKey(direction) && availableDirections.get(direction).equals(action);
+    }
+
+    public void addAction(Direction direction,
+                          Action action)
+    {
+        availableDirections.put(direction, action);
+    }
+
+    public enum Action
+    {
+        NO_ACTION,
+        LAVA_INPUT,
+        LAVA_OUTPUT,
+        ITEM_INPUT,
+        ITEM_OUTPUT,
+        BOTH_INPUT,
+        BOTH_OUTPUT
     }
 }

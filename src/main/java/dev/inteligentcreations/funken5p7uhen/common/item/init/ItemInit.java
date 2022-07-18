@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
 import dev.inteligentcreations.funken5p7uhen.common.item.group.impl.ItemGroupImpl;
 import dev.inteligentcreations.funken5p7uhen.common.item.impl.BlueprintItem;
+import dev.inteligentcreations.funken5p7uhen.common.item.impl.DebugItem;
 import dev.inteligentcreations.funken5p7uhen.common.item.impl.ItemWithTooltip;
 import dev.inteligentcreations.funken5p7uhen.common.util.blueprint.type.BlueprintTypeImpl;
 import dev.inteligentcreations.funken5p7uhen.funken5p7uhen;
@@ -45,4 +46,7 @@ public class ItemInit
             new BlueprintItem(BlueprintTypeImpl.EMBER_TUNNEL, new Item.Settings().group(ItemGroupImpl.INSTANCE)));
     public static final RegistryObject<Item> EMBER_CONTAINER_BLUEPRINT = ITEMS.register("ember_container_blueprint", () ->
             new BlueprintItem(BlueprintTypeImpl.EMBER_CONTAINER, new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+
+    public static final RegistryObject<Item> DEBUG_ITEM = ITEMS.register("debug_core", () ->
+            new DebugItem(new Item.Settings()));
 }

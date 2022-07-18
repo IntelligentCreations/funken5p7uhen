@@ -1,11 +1,14 @@
 package dev.inteligentcreations.funken5p7uhen.common.block.impl;
 
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberContainerBlockEntity;
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -15,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -57,5 +61,13 @@ public class EmberContainerBlock extends BlockWithEntity
                                          BlockState state)
     {
         return new EmberContainerBlockEntity(pos, state);
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world,
+                                                                  BlockState state,
+                                                                  BlockEntityType<T> type)
+    {
+        return checkType(type, BlockEntityInit.EMBER_CONTAINER.get(), EmberContainerBlockEntity::tick);
     }
 }

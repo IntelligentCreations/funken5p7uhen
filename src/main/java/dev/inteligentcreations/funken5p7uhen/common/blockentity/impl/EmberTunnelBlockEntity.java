@@ -1,5 +1,6 @@
 package dev.inteligentcreations.funken5p7uhen.common.blockentity.impl;
 
+import dev.inteligentcreations.funken5p7uhen.common.block.impl.EmberTunnelBlock;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
 import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstance;
 import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstanceProvider;
@@ -8,31 +9,27 @@ import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmberContainerBlockEntity extends BlockEntity implements LavaContainerInstanceProvider
-{
+public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainerInstanceProvider {
     private final LavaContainerInstance INSTANCE;
 
-    public EmberContainerBlockEntity(BlockPos pos,
-                                     BlockState state)
-    {
-        super(BlockEntityInit.EMBER_CONTAINER.get(), pos, state);
-        INSTANCE = LavaContainerInstance.createInstance(50,
-                50,
-                50000,
-                new HashMap<>(Map.of(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT,
-                        Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT)));
+    public EmberTunnelBlockEntity(BlockPos pos, BlockState state) {
+        super(BlockEntityInit.EMBER_TUNNEL.get(), pos, state);
+        INSTANCE = LavaContainerInstance.createInstance(5,
+                5,
+                100,
+                new HashMap<>(Map.of(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT,
+                        state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT)));
     }
 
     @Override
-    public LavaContainerInstance getLavaContainerInstance()
-    {
+    public LavaContainerInstance getLavaContainerInstance() {
         return INSTANCE;
     }
 
@@ -53,23 +50,33 @@ public class EmberContainerBlockEntity extends BlockEntity implements LavaContai
     public static void tick(World world,
                             BlockPos pos,
                             BlockState state,
-                            EmberContainerBlockEntity be)
+                            EmberTunnelBlockEntity be)
     {
         if (world.isClient()) return;
-        Block upperBlock = world.getBlockState(pos.up()).getBlock();
-        Block downBlock = world.getBlockState(pos.down()).getBlock();
-        if (upperBlock instanceof BlockEntityProvider)
+        Block facingBlock = world.getBlockState(pos.offset(state.get(Properties.FACING))).getBlock();
+        Block facingBlockOpposite = world.getBlockState(pos.offset(state.get(Properties.FACING).getOpposite())).getBlock();
+        if (be.getLavaContainerInstance().storedLava > 0)
         {
-            BlockEntity blockEntity = world.getBlockEntity(pos.up());
+            state = state.with(EmberTunnelBlock.WITH_LAVA, true);
+            markDirty(world, pos, state);
+        }
+        else
+        {
+            state = state.with(EmberTunnelBlock.WITH_LAVA, false);
+            markDirty(world, pos, state);
+        }
+        if (facingBlock instanceof BlockEntityProvider)
+        {
+            BlockEntity blockEntity = world.getBlockEntity(pos.offset(state.get(Properties.FACING)));
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
                 be.push(provider, be.getMaxExtract());
                 markDirty(world, pos, state);
             }
         }
-        if (downBlock instanceof BlockEntityProvider)
+        if (facingBlockOpposite instanceof BlockEntityProvider)
         {
-            BlockEntity blockEntity = world.getBlockEntity(pos.down());
+            BlockEntity blockEntity = world.getBlockEntity(pos.offset(state.get(Properties.FACING).getOpposite()));
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
                 provider.push(be, provider.getMaxExtract());
