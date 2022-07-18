@@ -1,5 +1,6 @@
 package dev.inteligentcreations.funken5p7uhen.common.block.impl;
 
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.ResearchingTableBlockEntity;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -26,7 +27,7 @@ public class ResearchingTableBlock extends BlockWithEntity
     public BlockEntity createBlockEntity(BlockPos pos,
                                          BlockState state)
     {
-        return null;
+        return new ResearchingTableBlockEntity(pos, state);
     }
 
     @Override

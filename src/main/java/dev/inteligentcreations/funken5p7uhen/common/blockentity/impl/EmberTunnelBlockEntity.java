@@ -16,13 +16,14 @@ import net.minecraft.world.World;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainerInstanceProvider {
+public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainerInstanceProvider
+{
     private final LavaContainerInstance INSTANCE;
 
     public EmberTunnelBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityInit.EMBER_TUNNEL.get(), pos, state);
-        INSTANCE = LavaContainerInstance.createInstance(5,
-                5,
+        INSTANCE = LavaContainerInstance.createInstance(1,
+                1,
                 100,
                 new HashMap<>(Map.of(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT,
                         state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT)));
@@ -58,11 +59,13 @@ public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainer
         if (be.getLavaContainerInstance().storedLava > 0)
         {
             state = state.with(EmberTunnelBlock.WITH_LAVA, true);
+            world.setBlockState(pos, state);
             markDirty(world, pos, state);
         }
         else
         {
             state = state.with(EmberTunnelBlock.WITH_LAVA, false);
+            world.setBlockState(pos, state);
             markDirty(world, pos, state);
         }
         if (facingBlock instanceof BlockEntityProvider)
@@ -70,7 +73,9 @@ public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainer
             BlockEntity blockEntity = world.getBlockEntity(pos.offset(state.get(Properties.FACING)));
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                be.push(provider, be.getMaxExtract());
+                if (be.getLavaContainerInstance().isActionValid(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT)
+                        && provider.getLavaContainerInstance().isActionValid(state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
+                    be.push(provider, be.getMaxExtract());
                 markDirty(world, pos, state);
             }
         }
@@ -79,7 +84,9 @@ public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainer
             BlockEntity blockEntity = world.getBlockEntity(pos.offset(state.get(Properties.FACING).getOpposite()));
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                provider.push(be, provider.getMaxExtract());
+                if (provider.getLavaContainerInstance().isActionValid(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT)
+                        && be.getLavaContainerInstance().isActionValid(state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
+                    provider.push(be, provider.getMaxExtract());
                 markDirty(world, pos, state);
             }
         }

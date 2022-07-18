@@ -63,7 +63,9 @@ public class EmberContainerBlockEntity extends BlockEntity implements LavaContai
             BlockEntity blockEntity = world.getBlockEntity(pos.up());
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                be.push(provider, be.getMaxExtract());
+                if (be.getLavaContainerInstance().isActionValid(Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT)
+                        && provider.getLavaContainerInstance().isActionValid(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT))
+                    be.push(provider, be.getMaxExtract());
                 markDirty(world, pos, state);
             }
         }
@@ -72,7 +74,9 @@ public class EmberContainerBlockEntity extends BlockEntity implements LavaContai
             BlockEntity blockEntity = world.getBlockEntity(pos.down());
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                provider.push(be, provider.getMaxExtract());
+                if (be.getLavaContainerInstance().isActionValid(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT)
+                        && provider.getLavaContainerInstance().isActionValid(Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT))
+                    provider.push(be, provider.getMaxExtract());
                 markDirty(world, pos, state);
             }
         }

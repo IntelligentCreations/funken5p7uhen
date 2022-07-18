@@ -52,17 +52,16 @@ public class LavaContainerInstance
         return new LavaContainerInstance(maxInsert, maxExtract, maxStore, availableDirections);
     }
 
-    public long extractTo(LavaContainerInstance target,
+    public void extractTo(LavaContainerInstance target,
                           long amount)
     {
         if (this == target)
         {
             throw new IllegalArgumentException("Attempt to extract a specific amount from and to a same LavaContainerInstance. Use add(long amount) instead.");
         }
-        long actualExtract = Math.min(Math.min(amount, this.getMaxExtract()), target.getMaxStore() - target.storedLava);
-        this.take(actualExtract);
+        long actualExtract = Math.min(Math.min(amount, Math.min(this.getMaxExtract(), target.getMaxInsert())), target.getMaxStore() - target.storedLava);
+        actualExtract = this.take(actualExtract);
         target.add(actualExtract);
-        return actualExtract;
     }
 
     public long add(long amount)
@@ -105,8 +104,6 @@ public class LavaContainerInstance
         LAVA_INPUT,
         LAVA_OUTPUT,
         ITEM_INPUT,
-        ITEM_OUTPUT,
-        BOTH_INPUT,
-        BOTH_OUTPUT
+        ITEM_OUTPUT
     }
 }

@@ -41,10 +41,9 @@ public interface LavaContainerInstanceProvider
      *
      * @param target The target the specific amount of lava is going to be pushed to
      * @param amount The amount of lava to be pushed to the target
-     * @return The amount of lava pushed successfully
      */
-    default long push(@NotNull LavaContainerInstanceProvider target, long amount)
+    default void push(@NotNull LavaContainerInstanceProvider target, long amount)
     {
-        return getLavaContainerInstance().extractTo(target.getLavaContainerInstance(), amount);
+        getLavaContainerInstance().extractTo(target.getLavaContainerInstance(), amount);
     }
 }
