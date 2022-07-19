@@ -2,8 +2,8 @@ package dev.inteligentcreations.funken5p7uhen.common.blockentity.impl;
 
 import com.google.common.collect.ImmutableMap;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
-import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstance;
-import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstanceProvider;
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.lava.LavaContainerInstance;
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.lava.LavaContainerInstanceProvider;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -17,7 +17,8 @@ import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmberIntersectionBlockEntity extends BlockEntity implements LavaContainerInstanceProvider
+public class EmberIntersectionBlockEntity extends BlockEntity
+        implements LavaContainerInstanceProvider
 {
     private final LavaContainerInstance INSTANCE;
     private final Map<Direction, LavaContainerInstance.Action> passiveIOMap = new HashMap<>();
@@ -33,7 +34,7 @@ public class EmberIntersectionBlockEntity extends BlockEntity implements LavaCon
     }
 
     @Override
-    public LavaContainerInstance getLavaContainerInstance()
+    public LavaContainerInstance getInstance()
     {
         return INSTANCE;
     }
@@ -76,7 +77,7 @@ public class EmberIntersectionBlockEntity extends BlockEntity implements LavaCon
                 BlockEntity blockEntity = world.getBlockEntity(pos1);
                 if (blockEntity instanceof LavaContainerInstanceProvider provider)
                 {
-                    if (provider.getLavaContainerInstance().isActionValid(dir.getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
+                    if (provider.getInstance().isActionValid(dir.getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
                     {
                         if (!existInIOMap(be, dir, LavaContainerInstance.Action.LAVA_OUTPUT))
                         {
@@ -91,7 +92,7 @@ public class EmberIntersectionBlockEntity extends BlockEntity implements LavaCon
                             be.passiveIOMap.remove(dir, LavaContainerInstance.Action.LAVA_OUTPUT);
                         }
                     }
-                    if (provider.getLavaContainerInstance().isActionValid(dir.getOpposite(), LavaContainerInstance.Action.LAVA_OUTPUT))
+                    if (provider.getInstance().isActionValid(dir.getOpposite(), LavaContainerInstance.Action.LAVA_OUTPUT))
                     {
                         if (!existInIOMap(be, dir, LavaContainerInstance.Action.LAVA_INPUT))
                         {

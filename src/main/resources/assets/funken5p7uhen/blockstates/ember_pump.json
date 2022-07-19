@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "charged=true": {
+      "model": "funken5p7uhen:/block/ember_pump_charged"
+    },
+    "charged=false": {
+      "model": "funken5p7uhen:/block/ember_pump"
+    }
+  }
+}

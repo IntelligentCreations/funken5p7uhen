@@ -1,10 +1,7 @@
 package dev.inteligentcreations.funken5p7uhen.common.blockentity.init;
 
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
-import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberContainerBlockEntity;
-import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberIntersectionBlockEntity;
-import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.EmberTunnelBlockEntity;
-import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.ResearchingTableBlockEntity;
+import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.*;
 import dev.inteligentcreations.funken5p7uhen.funken5p7uhen;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
@@ -21,6 +18,8 @@ public class BlockEntityInit
             BlockEntityType.Builder.create(EmberTunnelBlockEntity::new, BlockInit.EMBER_TUNNEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<EmberIntersectionBlockEntity>> EMBER_INTERSECTION = BLOCK_ENTITIES.register("ember_intersection", () ->
             BlockEntityType.Builder.create(EmberIntersectionBlockEntity::new, BlockInit.EMBER_INTERSECTION.get()).build(null));
+    public static final RegistryObject<BlockEntityType<EmberPumpBlockEntity>> EMBER_PUMP = BLOCK_ENTITIES.register("ember_pump", () ->
+            BlockEntityType.Builder.create(EmberPumpBlockEntity::new, BlockInit.EMBER_PUMP.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<ResearchingTableBlockEntity>> RESEARCHING_TABLE = BLOCK_ENTITIES.register("researching_table", () ->
             BlockEntityType.Builder.create(ResearchingTableBlockEntity::new, BlockInit.RESEARCHING_TABLE.get()).build(null));

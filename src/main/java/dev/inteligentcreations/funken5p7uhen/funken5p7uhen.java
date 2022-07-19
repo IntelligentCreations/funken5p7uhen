@@ -1,6 +1,7 @@
 package dev.inteligentcreations.funken5p7uhen;
 
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
+import dev.inteligentcreations.funken5p7uhen.common.block.init.DispenserBehaviorInit;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
 import dev.inteligentcreations.funken5p7uhen.common.item.init.ItemInit;
 import dev.inteligentcreations.funken5p7uhen.common.util.nothingtoseeheremovealong.LoggerSplashKinda;
@@ -29,6 +30,7 @@ public class funken5p7uhen
         BlockInit.BLOCKS.register(MOD_BUS);
         ItemInit.ITEMS.register(MOD_BUS);
         BlockEntityInit.BLOCK_ENTITIES.register(MOD_BUS);
+        DispenserBehaviorInit.registerBehaviors();
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Initialized.");
         LoggerSplashKinda.generateRandomSplash();
@@ -43,5 +45,7 @@ public class funken5p7uhen
     {
         RenderLayers.setRenderLayer(BlockInit.EMBER_TUNNEL.get(), RenderLayer.getCutout());
         RenderLayers.setRenderLayer(BlockInit.EMBER_CONTAINER.get(), RenderLayer.getCutout());
+        RenderLayers.setRenderLayer(BlockInit.EMBER_PUMP.get(), RenderLayer.getCutout());
+        RenderLayers.setRenderLayer(BlockInit.RESEARCHING_TABLE.get(), RenderLayer.getCutout());
     }
 }

@@ -1,19 +1,18 @@
 {
   "block.funken5p7uhen.ember_intersection": "Ember Intersection",
-  "block.funken5p7uhen.ember_intersection.tooltip": "Please have your mind turned around.",
+  "block.funken5p7uhen.ember_intersection.tooltip": "Change your way if there is no way.",
   "block.funken5p7uhen.ember_tunnel": "Ember Tunnel",
-  "block.funken5p7uhen.ember_tunnel.tooltip": "Four high walls.",
+  "block.funken5p7uhen.ember_tunnel.tooltip": "Walls that control.",
   "block.funken5p7uhen.ember_container": "Ember Container",
   "block.funken5p7uhen.ember_container.tooltip": "The crystallization of the nether is condensed here.",
+  "block.funken5p7uhen.ember_pump": "Ember Pump",
+  "block.funken5p7uhen.ember_pump.tooltip": "Evilness that only asks.",
 
-  "item.funken5p7uhen.inferno_tablet": "Inferno Tablet",
-  "item.funken5p7uhen.inferno_tablet.tooltip": "Still blazing.",
-  "item.funken5p7uhen.inferno_tablet.type_info": "Type: %s",
-
-  "tabletType.funken5p7uhen.march": "March",
-  "tabletType.funken5p7uhen.annihilation": "Annihilation",
-  "tabletType.funken5p7uhen.attraction": "Attraction",
-  "tabletType.funken5p7uhen.infiltration": "Infiltration",
+  "item.funken5p7uhen.abandoned_ember_intersection": "Abandoned Ember Intersection",
+  "item.funken5p7uhen.abandoned_ember_tunnel": "Abandoned Ember Tunnel",
+  "item.funken5p7uhen.abandoned_ember_container": "Abandoned Ember Container",
+  "item.funken5p7uhen.abandoned_ember_pump": "Abandoned Ember Pump",
+  "tooltip.funken5p7uhen.abandoned": "Memories of past time.",
 
   "itemGroup.funken5p7uhen": "fμnken5p7ühen"
 }

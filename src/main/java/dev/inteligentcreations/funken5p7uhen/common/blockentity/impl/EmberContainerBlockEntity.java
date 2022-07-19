@@ -1,8 +1,8 @@
 package dev.inteligentcreations.funken5p7uhen.common.blockentity.impl;
 
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
-import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstance;
-import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstanceProvider;
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.lava.LavaContainerInstance;
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.lava.LavaContainerInstanceProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -15,7 +15,8 @@ import net.minecraft.world.World;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmberContainerBlockEntity extends BlockEntity implements LavaContainerInstanceProvider
+public class EmberContainerBlockEntity extends BlockEntity
+        implements LavaContainerInstanceProvider
 {
     private final LavaContainerInstance INSTANCE;
 
@@ -31,7 +32,7 @@ public class EmberContainerBlockEntity extends BlockEntity implements LavaContai
     }
 
     @Override
-    public LavaContainerInstance getLavaContainerInstance()
+    public LavaContainerInstance getInstance()
     {
         return INSTANCE;
     }
@@ -63,8 +64,8 @@ public class EmberContainerBlockEntity extends BlockEntity implements LavaContai
             BlockEntity blockEntity = world.getBlockEntity(pos.up());
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                if (be.getLavaContainerInstance().isActionValid(Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT)
-                        && provider.getLavaContainerInstance().isActionValid(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT))
+                if (be.getInstance().isActionValid(Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT)
+                        && provider.getInstance().isActionValid(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT))
                     be.push(provider, be.getMaxExtract());
                 markDirty(world, pos, state);
             }
@@ -74,8 +75,8 @@ public class EmberContainerBlockEntity extends BlockEntity implements LavaContai
             BlockEntity blockEntity = world.getBlockEntity(pos.down());
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                if (be.getLavaContainerInstance().isActionValid(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT)
-                        && provider.getLavaContainerInstance().isActionValid(Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT))
+                if (be.getInstance().isActionValid(Direction.DOWN, LavaContainerInstance.Action.LAVA_INPUT)
+                        && provider.getInstance().isActionValid(Direction.UP, LavaContainerInstance.Action.LAVA_OUTPUT))
                     provider.push(be, provider.getMaxExtract());
                 markDirty(world, pos, state);
             }

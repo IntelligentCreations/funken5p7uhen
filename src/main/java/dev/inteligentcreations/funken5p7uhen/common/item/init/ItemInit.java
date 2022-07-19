@@ -26,6 +26,10 @@ public class ItemInit
             new BlockItem(BlockInit.EMBER_TUNNEL.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
     public static final RegistryObject<Item> EMBER_CONTAINER = ITEMS.register("ember_container", () ->
             new BlockItem(BlockInit.EMBER_CONTAINER.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> EMBER_PUMP = ITEMS.register("ember_pump", () ->
+            new BlockItem(BlockInit.EMBER_PUMP.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> RESEARCHING_TABLE = ITEMS.register("researching_table", () ->
+            new BlockItem(BlockInit.RESEARCHING_TABLE.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 
     public static final RegistryObject<Item> ABANDONED_EMBER_INTERSECTION = ITEMS.register("abandoned_ember_intersection", () ->
             new ItemWithTooltip(new Item.Settings().group(ItemGroupImpl.INSTANCE),
@@ -39,6 +43,10 @@ public class ItemInit
             new ItemWithTooltip(new Item.Settings().group(ItemGroupImpl.INSTANCE),
                     Lists.newArrayList(new TranslatableText("tooltip.funken5p7uhen.abandoned")
                             .formatted(Formatting.GRAY, Formatting.ITALIC))));
+    public static final RegistryObject<Item> ABANDONED_EMBER_PUMP = ITEMS.register("abandoned_ember_pump", () ->
+            new ItemWithTooltip(new Item.Settings().group(ItemGroupImpl.INSTANCE),
+                    Lists.newArrayList(new TranslatableText("tooltip.funken5p7uhen.abandoned")
+                            .formatted(Formatting.GRAY, Formatting.ITALIC))));
 
     public static final RegistryObject<Item> EMBER_INTERSECTION_BLUEPRINT = ITEMS.register("ember_intersection_blueprint", () ->
             new BlueprintItem(BlueprintTypeImpl.EMBER_INTERSECTION, new Item.Settings().group(ItemGroupImpl.INSTANCE)));
@@ -46,6 +54,8 @@ public class ItemInit
             new BlueprintItem(BlueprintTypeImpl.EMBER_TUNNEL, new Item.Settings().group(ItemGroupImpl.INSTANCE)));
     public static final RegistryObject<Item> EMBER_CONTAINER_BLUEPRINT = ITEMS.register("ember_container_blueprint", () ->
             new BlueprintItem(BlueprintTypeImpl.EMBER_CONTAINER, new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> EMBER_PUMP_BLUEPRINT = ITEMS.register("ember_pump_blueprint", () ->
+            new BlueprintItem(BlueprintTypeImpl.EMBER_PUMP, new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 
     public static final RegistryObject<Item> DEBUG_ITEM = ITEMS.register("debug_core", () ->
             new DebugItem(new Item.Settings()));

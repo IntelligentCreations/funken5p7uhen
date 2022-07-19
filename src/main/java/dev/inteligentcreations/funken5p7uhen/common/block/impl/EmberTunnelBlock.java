@@ -30,7 +30,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class EmberTunnelBlock extends BlockWithEntity implements Waterloggable
+public class EmberTunnelBlock extends BlockWithEntity
+        implements Waterloggable
 {
     public static final BooleanProperty WITH_LAVA = BooleanProperty.of("lava");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;

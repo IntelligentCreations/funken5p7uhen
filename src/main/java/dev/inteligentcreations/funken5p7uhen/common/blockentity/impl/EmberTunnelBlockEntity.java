@@ -2,8 +2,8 @@ package dev.inteligentcreations.funken5p7uhen.common.blockentity.impl;
 
 import dev.inteligentcreations.funken5p7uhen.common.block.impl.EmberTunnelBlock;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
-import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstance;
-import dev.inteligentcreations.funken5p7uhen.common.util.instance.LavaContainerInstanceProvider;
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.lava.LavaContainerInstance;
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.lava.LavaContainerInstanceProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -16,7 +16,8 @@ import net.minecraft.world.World;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainerInstanceProvider
+public class EmberTunnelBlockEntity extends BlockEntity
+        implements LavaContainerInstanceProvider
 {
     private final LavaContainerInstance INSTANCE;
 
@@ -30,7 +31,7 @@ public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainer
     }
 
     @Override
-    public LavaContainerInstance getLavaContainerInstance() {
+    public LavaContainerInstance getInstance() {
         return INSTANCE;
     }
 
@@ -56,25 +57,23 @@ public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainer
         if (world.isClient()) return;
         Block facingBlock = world.getBlockState(pos.offset(state.get(Properties.FACING))).getBlock();
         Block facingBlockOpposite = world.getBlockState(pos.offset(state.get(Properties.FACING).getOpposite())).getBlock();
-        if (be.getLavaContainerInstance().storedLava > 0)
+        if (be.getInstance().storedLava > 0)
         {
             state = state.with(EmberTunnelBlock.WITH_LAVA, true);
-            world.setBlockState(pos, state);
-            markDirty(world, pos, state);
         }
         else
         {
             state = state.with(EmberTunnelBlock.WITH_LAVA, false);
-            world.setBlockState(pos, state);
-            markDirty(world, pos, state);
         }
+        world.setBlockState(pos, state);
+        markDirty(world, pos, state);
         if (facingBlock instanceof BlockEntityProvider)
         {
             BlockEntity blockEntity = world.getBlockEntity(pos.offset(state.get(Properties.FACING)));
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                if (be.getLavaContainerInstance().isActionValid(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT)
-                        && provider.getLavaContainerInstance().isActionValid(state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
+                if (be.getInstance().isActionValid(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT)
+                        && provider.getInstance().isActionValid(state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
                     be.push(provider, be.getMaxExtract());
                 markDirty(world, pos, state);
             }
@@ -84,8 +83,8 @@ public class EmberTunnelBlockEntity extends BlockEntity implements LavaContainer
             BlockEntity blockEntity = world.getBlockEntity(pos.offset(state.get(Properties.FACING).getOpposite()));
             if (blockEntity instanceof LavaContainerInstanceProvider provider)
             {
-                if (provider.getLavaContainerInstance().isActionValid(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT)
-                        && be.getLavaContainerInstance().isActionValid(state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
+                if (provider.getInstance().isActionValid(state.get(Properties.FACING), LavaContainerInstance.Action.LAVA_OUTPUT)
+                        && be.getInstance().isActionValid(state.get(Properties.FACING).getOpposite(), LavaContainerInstance.Action.LAVA_INPUT))
                     provider.push(be, provider.getMaxExtract());
                 markDirty(world, pos, state);
             }

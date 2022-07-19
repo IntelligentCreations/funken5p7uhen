@@ -1,39 +1,39 @@
-package dev.inteligentcreations.funken5p7uhen.common.util.instance;
+package dev.inteligentcreations.funken5p7uhen.common.util.instance.lava;
 
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.InstanceProvider;
 import org.jetbrains.annotations.NotNull;
 
 public interface LavaContainerInstanceProvider
+        extends InstanceProvider<LavaContainerInstance>
 {
-    LavaContainerInstance getLavaContainerInstance();
-
     default long getStoredLava()
     {
-        return getLavaContainerInstance().storedLava;
+        return getInstance().storedLava;
     }
 
     default long getMaxInsert()
     {
-        return getLavaContainerInstance().getMaxInsert();
+        return getInstance().getMaxInsert();
     }
 
     default long getMaxExtract()
     {
-        return getLavaContainerInstance().getMaxExtract();
+        return getInstance().getMaxExtract();
     }
 
     default long getMaxStore()
     {
-        return getLavaContainerInstance().getMaxStore();
+        return getInstance().getMaxStore();
     }
 
     default long add(long amount)
     {
-        return getLavaContainerInstance().add(amount);
+        return getInstance().add(amount);
     }
 
     default long remove(long amount)
     {
-        return getLavaContainerInstance().take(amount);
+        return getInstance().take(amount);
     }
 
     /**
@@ -44,6 +44,6 @@ public interface LavaContainerInstanceProvider
      */
     default void push(@NotNull LavaContainerInstanceProvider target, long amount)
     {
-        getLavaContainerInstance().extractTo(target.getLavaContainerInstance(), amount);
+        getInstance().extractTo(target.getInstance(), amount);
     }
 }

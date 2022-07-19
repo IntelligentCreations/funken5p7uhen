@@ -1,5 +1,6 @@
-package dev.inteligentcreations.funken5p7uhen.common.util.instance;
+package dev.inteligentcreations.funken5p7uhen.common.util.instance.lava;
 
+import dev.inteligentcreations.funken5p7uhen.common.util.instance.InstanceIdentifiable;
 import net.minecraft.util.math.Direction;
 
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.Map;
  * It should also be easier to port the mod to Fabric.
  */
 public class LavaContainerInstance
+        implements InstanceIdentifiable
 {
     public long storedLava;
     private final long maxInsert;
@@ -92,15 +94,8 @@ public class LavaContainerInstance
         return availableDirections.containsKey(direction) && availableDirections.get(direction).equals(action);
     }
 
-    public void addAction(Direction direction,
-                          Action action)
-    {
-        availableDirections.put(direction, action);
-    }
-
     public enum Action
     {
-        NO_ACTION,
         LAVA_INPUT,
         LAVA_OUTPUT,
         ITEM_INPUT,
