@@ -8,4 +8,8 @@
 
 It focuses on using fire and lava to build a complete logistics system.
 
-WARNING: Incomplete and won't get many updates until June 13th.
+***Work In Progress***.
+
+### Staging Build
+
+Though incomplete, you can still get staging build at [GitHub Actions](https://github.com/IntelligentCreations/funken5p7uhen/actions).
