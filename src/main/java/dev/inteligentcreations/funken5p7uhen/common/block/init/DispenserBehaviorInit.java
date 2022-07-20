@@ -36,7 +36,7 @@ public class DispenserBehaviorInit
                         BlockEntity be = world.getBlockEntity(pos);
                         if (be instanceof EmberPumpBlockEntity pump)
                         {
-                            long addition = EmberPumpBlockEntity.CHARGEABLE.get(stack.getItem());
+                            long addition = entry.getValue();
                             if (pump.blazeEnergy < pump.getMaxEnergy())
                             {
                                 pump.blazeEnergy += Math.min(addition, pump.getMaxEnergy() - pump.blazeEnergy);

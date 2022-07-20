@@ -28,8 +28,8 @@ public class ItemInit
             new BlockItem(BlockInit.EMBER_CONTAINER.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
     public static final RegistryObject<Item> EMBER_PUMP = ITEMS.register("ember_pump", () ->
             new BlockItem(BlockInit.EMBER_PUMP.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
-    public static final RegistryObject<Item> RESEARCHING_TABLE = ITEMS.register("researching_table", () ->
-            new BlockItem(BlockInit.RESEARCHING_TABLE.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> DEVELOPING_STATION = ITEMS.register("developing_station", () ->
+            new BlockItem(BlockInit.DEVELOPING_STATION.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 
     public static final RegistryObject<Item> ABANDONED_EMBER_INTERSECTION = ITEMS.register("abandoned_ember_intersection", () ->
             new ItemWithTooltip(new Item.Settings().group(ItemGroupImpl.INSTANCE),

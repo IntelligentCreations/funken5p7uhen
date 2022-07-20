@@ -1,0 +1,7 @@
+{
+  "type": "funken5p7uhen:developing",
+  "input" : {
+    "item": "funken5p7uhen:abandoned_ember_container"
+  },
+  "outputItem": "funken5p7uhen:ember_container_blueprint"
+}

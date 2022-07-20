@@ -20,6 +20,6 @@ public class BlockInit
     public static final RegistryObject<Block> EMBER_PUMP = BLOCKS.register("ember_pump", () ->
             new EmberPumpBlock(Block.Settings.of(Material.STONE, MapColor.BLACK).hardness(2.0f).requiresTool()));
 
-    public static final RegistryObject<Block> RESEARCHING_TABLE = BLOCKS.register("researching_table", () ->
-            new ResearchingTableBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
+    public static final RegistryObject<Block> DEVELOPING_STATION = BLOCKS.register("developing_station", () ->
+            new DevelopingStationBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 }

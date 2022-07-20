@@ -1,9 +1,13 @@
 package dev.inteligentcreations.funken5p7uhen;
 
+import dev.inteligentcreations.funken5p7uhen.client.screen.init.ScreenInit;
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
 import dev.inteligentcreations.funken5p7uhen.common.block.init.DispenserBehaviorInit;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
+import dev.inteligentcreations.funken5p7uhen.common.data.recipe.serializer.init.RecipeSerializerInit;
+import dev.inteligentcreations.funken5p7uhen.common.data.recipe.type.init.RecipeTypeInit;
 import dev.inteligentcreations.funken5p7uhen.common.item.init.ItemInit;
+import dev.inteligentcreations.funken5p7uhen.common.screen.handler.init.ScreenHandlerInit;
 import dev.inteligentcreations.funken5p7uhen.common.util.nothingtoseeheremovealong.LoggerSplashKinda;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
@@ -20,7 +24,7 @@ import org.slf4j.LoggerFactory;
 public class funken5p7uhen
 {
     public static final String MOD_ID = "funken5p7uhen";
-    public static final Logger LOGGER = LoggerFactory.getLogger("fμnken5p7ühen");
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public funken5p7uhen()
     {
@@ -30,6 +34,9 @@ public class funken5p7uhen
         BlockInit.BLOCKS.register(MOD_BUS);
         ItemInit.ITEMS.register(MOD_BUS);
         BlockEntityInit.BLOCK_ENTITIES.register(MOD_BUS);
+        ScreenHandlerInit.SCREEN_HANDLERS.register(MOD_BUS);
+        RecipeTypeInit.TYPES.register(MOD_BUS);
+        RecipeSerializerInit.SERIALIZERS.register(MOD_BUS);
         DispenserBehaviorInit.registerBehaviors();
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Initialized.");
@@ -43,9 +50,10 @@ public class funken5p7uhen
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+        ScreenInit.registerScreens();
         RenderLayers.setRenderLayer(BlockInit.EMBER_TUNNEL.get(), RenderLayer.getCutout());
         RenderLayers.setRenderLayer(BlockInit.EMBER_CONTAINER.get(), RenderLayer.getCutout());
         RenderLayers.setRenderLayer(BlockInit.EMBER_PUMP.get(), RenderLayer.getCutout());
-        RenderLayers.setRenderLayer(BlockInit.RESEARCHING_TABLE.get(), RenderLayer.getCutout());
+        RenderLayers.setRenderLayer(BlockInit.DEVELOPING_STATION.get(), RenderLayer.getCutout());
     }
 }

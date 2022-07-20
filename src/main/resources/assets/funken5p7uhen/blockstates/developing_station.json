@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "funken5p7uhen:block/developing_station", "y": 180 },
+    "facing=east":  { "model": "funken5p7uhen:block/developing_station", "y": 270 },
+    "facing=south": { "model": "funken5p7uhen:block/developing_station" },
+    "facing=west":  { "model": "funken5p7uhen:block/developing_station", "y":  90 }
+  }
+}
