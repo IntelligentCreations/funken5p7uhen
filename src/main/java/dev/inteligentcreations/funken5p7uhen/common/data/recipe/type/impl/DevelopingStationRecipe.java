@@ -1,7 +1,7 @@
 package dev.inteligentcreations.funken5p7uhen.common.data.recipe.type.impl;
 
 import com.google.gson.JsonObject;
-import dev.inteligentcreations.funken5p7uhen.common.util.inventory.DevelopingStationInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
@@ -10,7 +10,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class DevelopingStationRecipe implements Recipe<DevelopingStationInventory>
+public class DevelopingStationRecipe implements Recipe<Inventory>
 {
     private final Ingredient input;
     private final ItemStack result;
@@ -26,7 +26,7 @@ public class DevelopingStationRecipe implements Recipe<DevelopingStationInventor
     }
 
     @Override
-    public boolean matches(DevelopingStationInventory inventory,
+    public boolean matches(Inventory inventory,
                            World world)
     {
         if(inventory.size() != 3) return false;
@@ -39,7 +39,7 @@ public class DevelopingStationRecipe implements Recipe<DevelopingStationInventor
     }
 
     @Override
-    public ItemStack craft(DevelopingStationInventory inventory)
+    public ItemStack craft(Inventory inventory)
     {
         return this.getOutput().copy();
     }

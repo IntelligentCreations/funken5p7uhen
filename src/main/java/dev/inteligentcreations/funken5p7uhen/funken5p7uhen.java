@@ -4,6 +4,7 @@ import dev.inteligentcreations.funken5p7uhen.client.screen.init.ScreenInit;
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
 import dev.inteligentcreations.funken5p7uhen.common.block.init.DispenserBehaviorInit;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
+import dev.inteligentcreations.funken5p7uhen.common.data.recipe.category.init.RecipeCategoryInit;
 import dev.inteligentcreations.funken5p7uhen.common.data.recipe.serializer.init.RecipeSerializerInit;
 import dev.inteligentcreations.funken5p7uhen.common.data.recipe.type.init.RecipeTypeInit;
 import dev.inteligentcreations.funken5p7uhen.common.item.init.ItemInit;
@@ -38,6 +39,7 @@ public class funken5p7uhen
         RecipeTypeInit.TYPES.register(MOD_BUS);
         RecipeSerializerInit.SERIALIZERS.register(MOD_BUS);
         DispenserBehaviorInit.registerBehaviors();
+        RecipeCategoryInit.registerCategories();
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Initialized.");
         LoggerSplashKinda.generateRandomSplash();

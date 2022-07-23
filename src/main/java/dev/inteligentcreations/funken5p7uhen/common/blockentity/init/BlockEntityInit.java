@@ -1,5 +1,6 @@
 package dev.inteligentcreations.funken5p7uhen.common.blockentity.init;
 
+import com.mojang.datafixers.DSL;
 import dev.inteligentcreations.funken5p7uhen.common.block.init.BlockInit;
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.*;
 import dev.inteligentcreations.funken5p7uhen.funken5p7uhen;
@@ -22,5 +23,5 @@ public class BlockEntityInit
             BlockEntityType.Builder.create(EmberPumpBlockEntity::new, BlockInit.EMBER_PUMP.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<DevelopingStationBlockEntity>> DEVELOPING_STATION = BLOCK_ENTITIES.register("developing_station", () ->
-            BlockEntityType.Builder.create(DevelopingStationBlockEntity::new, BlockInit.DEVELOPING_STATION.get()).build(null));
+            BlockEntityType.Builder.create(DevelopingStationBlockEntity::new, BlockInit.DEVELOPING_STATION.get()).build(DSL.remainderType()));
 }

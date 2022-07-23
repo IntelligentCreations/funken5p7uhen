@@ -14,14 +14,12 @@ public class DevelopingStationScreen
         extends HandledScreen<DevelopingStationScreenHandler>
 {
     private static final Identifier TEXTURE = new Identifier(funken5p7uhen.MOD_ID, "textures/gui/developing_station.png");
-    private final DevelopingStationScreenHandler handler;
 
     public DevelopingStationScreen(DevelopingStationScreenHandler handler,
                                    PlayerInventory inventory,
                                    Text title)
     {
         super(handler, inventory, title);
-        this.handler = handler;
     }
 
     @Override
@@ -36,8 +34,6 @@ public class DevelopingStationScreen
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        int l = handler.getProgress() <= 0 ? 0 : handler.getProgress() / 300 + 1;
-        drawTexture(matrices, x + 83, y + 39, 176, 0, l, 4);
     }
 
     @Override

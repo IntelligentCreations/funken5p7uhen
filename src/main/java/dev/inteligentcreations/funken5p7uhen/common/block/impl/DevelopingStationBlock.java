@@ -1,11 +1,11 @@
 package dev.inteligentcreations.funken5p7uhen.common.block.impl;
 
 import dev.inteligentcreations.funken5p7uhen.common.blockentity.impl.DevelopingStationBlockEntity;
-import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
+// import dev.inteligentcreations.funken5p7uhen.common.blockentity.init.BlockEntityInit;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
+// import net.minecraft.block.entity.BlockEntityTicker;
+// import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -118,10 +118,30 @@ public class DevelopingStationBlock extends BlockWithEntity
     }
 
     @Override
+    public void onStateReplaced(BlockState state,
+                                World world,
+                                BlockPos pos,
+                                BlockState newState,
+                                boolean moved)
+    {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof DevelopingStationBlockEntity be)
+            {
+                ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), be.getStack(0));
+                ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), be.getStack(1));
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
+    }
+
+    /*
+    @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world,
                                                                   BlockState state,
                                                                   BlockEntityType<T> type)
     {
         return checkType(type, BlockEntityInit.DEVELOPING_STATION.get(), DevelopingStationBlockEntity::tick);
     }
+     */
 }
