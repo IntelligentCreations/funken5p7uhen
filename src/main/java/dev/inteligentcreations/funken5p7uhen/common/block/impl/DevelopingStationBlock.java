@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
@@ -75,6 +76,8 @@ public class DevelopingStationBlock extends BlockWithEntity
     {
         tooltip.add(new TranslatableText("tooltip.funken5p7uhen.developing_station")
                 .formatted(Formatting.GRAY, Formatting.ITALIC));
+        tooltip.add(new LiteralText("WIP")
+                .formatted(Formatting.RED, Formatting.BOLD));
     }
 
     @Override

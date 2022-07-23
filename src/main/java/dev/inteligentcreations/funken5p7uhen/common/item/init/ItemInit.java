@@ -28,6 +28,16 @@ public class ItemInit
             new BlockItem(BlockInit.EMBER_CONTAINER.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
     public static final RegistryObject<Item> EMBER_PUMP = ITEMS.register("ember_pump", () ->
             new BlockItem(BlockInit.EMBER_PUMP.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+
+    public static final RegistryObject<Item> BASALT_PIGLIN_SCULPTURE = ITEMS.register("basalt_piglin_sculpture", () ->
+            new BlockItem(BlockInit.BASALT_PIGLIN_SCULPTURE.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> BASALT_THIN_PILLAR = ITEMS.register("basalt_thin_pillar", () ->
+            new BlockItem(BlockInit.BASALT_THIN_PILLAR.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> BASALT_THIN_PILLAR_BASE = ITEMS.register("basalt_thin_pillar_base", () ->
+            new BlockItem(BlockInit.BASALT_THIN_PILLAR_BASE.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    public static final RegistryObject<Item> BASALT_THIN_PILLAR_TOP = ITEMS.register("basalt_thin_pillar_top", () ->
+            new BlockItem(BlockInit.BASALT_THIN_PILLAR_TOP.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+
     public static final RegistryObject<Item> DEVELOPING_STATION = ITEMS.register("developing_station", () ->
             new BlockItem(BlockInit.DEVELOPING_STATION.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 

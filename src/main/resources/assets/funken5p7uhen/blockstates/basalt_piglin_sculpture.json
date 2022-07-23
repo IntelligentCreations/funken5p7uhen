@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "funken5p7uhen:block/basalt_piglin_sculpture", "y": 180 },
+    "facing=east":  { "model": "funken5p7uhen:block/basalt_piglin_sculpture", "y": 270 },
+    "facing=south": { "model": "funken5p7uhen:block/basalt_piglin_sculpture" },
+    "facing=west":  { "model": "funken5p7uhen:block/basalt_piglin_sculpture", "y": 90 }
+  }
+}

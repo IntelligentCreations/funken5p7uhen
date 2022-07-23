@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "funken5p7uhen:/block/basalt_thin_pillar",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "funken5p7uhen:/block/basalt_thin_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "funken5p7uhen:/block/basalt_thin_pillar",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "funken5p7uhen:/block/basalt_thin_pillar",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "funken5p7uhen:/block/basalt_thin_pillar"
+    },
+    "facing=west": {
+      "model": "funken5p7uhen:/block/basalt_thin_pillar",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
