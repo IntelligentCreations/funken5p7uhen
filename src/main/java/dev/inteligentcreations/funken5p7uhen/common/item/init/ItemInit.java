@@ -38,8 +38,8 @@ public class ItemInit
     public static final RegistryObject<Item> BASALT_THIN_PILLAR_TOP = ITEMS.register("basalt_thin_pillar_top", () ->
             new BlockItem(BlockInit.BASALT_THIN_PILLAR_TOP.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 
-    public static final RegistryObject<Item> DEVELOPING_STATION = ITEMS.register("developing_station", () ->
-            new BlockItem(BlockInit.DEVELOPING_STATION.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
+    // public static final RegistryObject<Item> DEVELOPING_STATION = ITEMS.register("developing_station", () ->
+    //         new BlockItem(BlockInit.DEVELOPING_STATION.get(), new Item.Settings().group(ItemGroupImpl.INSTANCE)));
 
     public static final RegistryObject<Item> ABANDONED_EMBER_INTERSECTION = ITEMS.register("abandoned_ember_intersection", () ->
             new ItemWithTooltip(new Item.Settings().group(ItemGroupImpl.INSTANCE),

@@ -22,6 +22,6 @@ public class BlockEntityInit
     public static final RegistryObject<BlockEntityType<EmberPumpBlockEntity>> EMBER_PUMP = BLOCK_ENTITIES.register("ember_pump", () ->
             BlockEntityType.Builder.create(EmberPumpBlockEntity::new, BlockInit.EMBER_PUMP.get()).build(null));
 
-    public static final RegistryObject<BlockEntityType<DevelopingStationBlockEntity>> DEVELOPING_STATION = BLOCK_ENTITIES.register("developing_station", () ->
-            BlockEntityType.Builder.create(DevelopingStationBlockEntity::new, BlockInit.DEVELOPING_STATION.get()).build(DSL.remainderType()));
+    // public static final RegistryObject<BlockEntityType<DevelopingStationBlockEntity>> DEVELOPING_STATION = BLOCK_ENTITIES.register("developing_station", () ->
+    //        BlockEntityType.Builder.create(DevelopingStationBlockEntity::new, BlockInit.DEVELOPING_STATION.get()).build(DSL.remainderType()));
 }

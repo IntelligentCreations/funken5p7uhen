@@ -11,6 +11,6 @@ public class RecipeTypeInit
 {
     public static final DeferredRegister<RecipeType<?>> TYPES = DeferredRegister.create(Registry.RECIPE_TYPE_KEY, funken5p7uhen.MOD_ID);
 
-    public static final RegistryObject<RecipeType<DevelopingStationRecipe>> DEVELOPING = TYPES.register(DevelopingStationRecipe.Type.ID, () ->
-            DevelopingStationRecipe.Type.INSTANCE);
+    // public static final RegistryObject<RecipeType<DevelopingStationRecipe>> DEVELOPING = TYPES.register(DevelopingStationRecipe.Type.ID, () ->
+    //         DevelopingStationRecipe.Type.INSTANCE);
 }

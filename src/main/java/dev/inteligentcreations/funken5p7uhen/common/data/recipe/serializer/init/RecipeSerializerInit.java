@@ -12,6 +12,6 @@ public class RecipeSerializerInit
 {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(Registry.RECIPE_SERIALIZER_KEY, funken5p7uhen.MOD_ID);
 
-    public static final RegistryObject<RecipeSerializer<DevelopingStationRecipe>> DEVELOPING = SERIALIZERS.register(DevelopingStationRecipeSerializer.ID, () ->
-            DevelopingStationRecipeSerializer.INSTANCE);
+    // public static final RegistryObject<RecipeSerializer<DevelopingStationRecipe>> DEVELOPING = SERIALIZERS.register(DevelopingStationRecipeSerializer.ID, () ->
+    //         DevelopingStationRecipeSerializer.INSTANCE);
 }

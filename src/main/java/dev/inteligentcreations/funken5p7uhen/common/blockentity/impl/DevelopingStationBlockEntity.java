@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 // import java.util.Optional;
 
-public class DevelopingStationBlockEntity extends BlockEntity
+public class DevelopingStationBlockEntity {} /* extends BlockEntity
         implements DevelopingStationInventory, NamedScreenHandlerFactory
 {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
@@ -72,7 +72,6 @@ public class DevelopingStationBlockEntity extends BlockEntity
                 ScreenHandlerContext.create(world, pos));
     }
 
-    /*
     public static void tick(World world,
                             BlockPos pos,
                             BlockState state,
@@ -99,7 +98,6 @@ public class DevelopingStationBlockEntity extends BlockEntity
             markDirty(world, pos, state);
         }
     }
-    */
 
     public static void beMarkDirty(World world,
                                    BlockPos pos,
@@ -108,3 +106,4 @@ public class DevelopingStationBlockEntity extends BlockEntity
         markDirty(world, pos, state);
     }
 }
+ */

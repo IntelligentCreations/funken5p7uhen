@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DevelopingStationBlock extends BlockWithEntity
+public class DevelopingStationBlock {} /* extends BlockWithEntity
 {
     public DevelopingStationBlock(Settings arg)
     {
@@ -138,7 +138,6 @@ public class DevelopingStationBlock extends BlockWithEntity
         }
     }
 
-    /*
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world,
                                                                   BlockState state,
@@ -146,5 +145,5 @@ public class DevelopingStationBlock extends BlockWithEntity
     {
         return checkType(type, BlockEntityInit.DEVELOPING_STATION.get(), DevelopingStationBlockEntity::tick);
     }
-     */
 }
+*/

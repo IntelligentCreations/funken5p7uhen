@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class DevelopingStationScreenHandler extends AbstractRecipeScreenHandler<Inventory>
+public class DevelopingStationScreenHandler {} /* extends AbstractRecipeScreenHandler<Inventory>
 {
     private final Inventory inventory;
     private final ScreenHandlerContext context;
@@ -217,3 +217,4 @@ public class DevelopingStationScreenHandler extends AbstractRecipeScreenHandler<
         return index != 2;
     }
 }
+*/

@@ -8,6 +8,6 @@ public class ScreenInit
 {
     public static void registerScreens()
     {
-        HandledScreens.register(ScreenHandlerInit.DEVELOPING_STATION.get(), DevelopingStationScreen::new);
+        // HandledScreens.register(ScreenHandlerInit.DEVELOPING_STATION.get(), DevelopingStationScreen::new);
     }
 }

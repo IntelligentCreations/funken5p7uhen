@@ -10,7 +10,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class DevelopingStationScreen
+public class DevelopingStationScreen {} /*
         extends HandledScreen<DevelopingStationScreenHandler>
 {
     private static final Identifier TEXTURE = new Identifier(funken5p7uhen.MOD_ID, "textures/gui/developing_station.png");
@@ -47,3 +47,4 @@ public class DevelopingStationScreen
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 }
+*/

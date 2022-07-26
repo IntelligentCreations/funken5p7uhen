@@ -56,7 +56,7 @@ public class funken5p7uhen
         RenderLayers.setRenderLayer(BlockInit.EMBER_TUNNEL.get(), RenderLayer.getCutout());
         RenderLayers.setRenderLayer(BlockInit.EMBER_CONTAINER.get(), RenderLayer.getCutout());
         RenderLayers.setRenderLayer(BlockInit.EMBER_PUMP.get(), RenderLayer.getCutout());
-        RenderLayers.setRenderLayer(BlockInit.DEVELOPING_STATION.get(), RenderLayer.getCutout());
+        // RenderLayers.setRenderLayer(BlockInit.DEVELOPING_STATION.get(), RenderLayer.getCutout());
         RenderLayers.setRenderLayer(BlockInit.BASALT_PIGLIN_SCULPTURE.get(), RenderLayer.getCutout());
     }
 }
